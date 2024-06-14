@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>My App</title>
@@ -19,13 +21,21 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/books">List Book</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/add">Thêm mới</a>
+                        <a class="nav-link" href="/books/add">Add Book</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()">
+                        <form th:action="@{/logout}" method="post">
+                            <button class="btn btn-outline-danger" type="submit">Logout</button>
+                        </form>
+                    </li>
+                    <li sec:authorize="!isAuthenticated()">
+                        <a class="btn btn-outline-primary" href="/login">Login</a>
                     </li>
                 </ul>
             </div>
