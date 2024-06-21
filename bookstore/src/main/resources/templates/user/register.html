@@ -22,8 +22,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="email">Email:</label><span class="text-danger">*</span>
-                    <input class="form-control" type="text" th:field="*{email}" id="email">
+                    <label class="form-label" for="email">Email:</label>
+                    <input class="form-control" type="email" th:field="*{email}" id="email">
                     <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
                 </div>
 
@@ -35,15 +35,13 @@
 
                 <div class="mb-3">
                     <label class="form-label" for="password">Password:</label><span class="text-danger">*</span>
-                    <input class="form-control" type="text" th:field="*{password}" id="password">
+                    <input class="form-control" type="password" th:field="*{password}" id="password">
                     <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
                 </div>
 
                 <div class="d-grid gap-2">
                     <button type="submit" class="btn btn-info">Sign up</button>
                 </div>
-
-                </fieldset>
             </form>
         </div>
     </div>

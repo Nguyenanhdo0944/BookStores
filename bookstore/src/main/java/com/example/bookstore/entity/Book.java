@@ -24,10 +24,12 @@ public class Book {
     @Column(name = "price")
     @NotNull(message = "Giá không được để trống")
     private Double price;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     @ValidCategoryId
     private Category category;
+
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ValidUserId
